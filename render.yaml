@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: comment-analyzer
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn commentanlyz.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.12
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
